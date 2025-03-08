@@ -11,67 +11,99 @@
     left: 0;
     z-index: 1000;
     transition: top 0.3s ease;
-  }
-  .navbar .logo {
+}
+
+.navbar .logo {
     font-size: 2.5rem;
     font-weight: bold;
     color: white;
     text-decoration: none;
-  }
-  .nav-links {
+}
+
+.nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
-  }
-  .nav-links li a {
+}
+
+.nav-links li a {
     color: white;
     text-decoration: none;
     font-size: 2.5rem;
-    padding: 10px 15px; // Tambahkan padding agar efek hover lebih terlihat
-    border-radius: 10px; // Beri sudut agar lebih estetis
+    padding: 10px 15px;
+    border-radius: 10px;
     transition: background-color 0.3s ease, text-decoration 0.3s ease;
-  }
-  .nav-links li a:hover {
-    background-color: #b0b0b0; // Warna abu-abu saat hover
+}
+
+.nav-links li a:hover {
+    background-color: #b0b0b0;
     color: black;
-  }
-  
-  .navbar__brand {
+}
+
+.navbar__brand {
     font-size: 1.8rem;
     font-weight: bold;
     color: #ffffff;
     text-decoration: none;
-  }
+}
 
-  .navbar__menu {
+.navbar__menu {
     ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      margin: 0;
-      padding: 0;
-
-      li {
-        a {
-          color: #ffffff;
-          text-decoration: none;
-          font-size: 1.2rem;
-          transition: color 0.3s ease-in-out;
-
-          &:hover {
-            color: #f0a500; // Warna saat hover
-          }
-        }
-      }
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
     }
-  }
+}
 
-  @media (max-width: 768px) {
+.navbar__menu ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar__menu ul li a:hover {
+    color: #f0a500;
+}
+
+/* Mobile Responsive */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+}
+
+@media (max-width: 768px) {
     .navbar {
-      padding: 1rem;
-  
-      .navbar__menu ul {
-        gap: 1rem;
-      }
+        padding: 1rem;
     }
-  }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #333;
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        padding: 1rem 0;
+    }
+}
